@@ -33,6 +33,7 @@
             this.btnAddNewCar = new System.Windows.Forms.Button();
             this.btnEditCar = new System.Windows.Forms.Button();
             this.btnDeleteCar = new System.Windows.Forms.Button();
+            this.btnRefresh = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvVehicleListing)).BeginInit();
             this.SuspendLayout();
             // 
@@ -41,7 +42,7 @@
             this.dgvVehicleListing.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvVehicleListing.Location = new System.Drawing.Point(12, 54);
             this.dgvVehicleListing.Name = "dgvVehicleListing";
-            this.dgvVehicleListing.Size = new System.Drawing.Size(277, 150);
+            this.dgvVehicleListing.Size = new System.Drawing.Size(546, 150);
             this.dgvVehicleListing.TabIndex = 0;
             // 
             // label1
@@ -56,36 +57,50 @@
             // 
             // btnAddNewCar
             // 
-            this.btnAddNewCar.Location = new System.Drawing.Point(305, 73);
+            this.btnAddNewCar.Location = new System.Drawing.Point(600, 105);
             this.btnAddNewCar.Name = "btnAddNewCar";
             this.btnAddNewCar.Size = new System.Drawing.Size(75, 23);
             this.btnAddNewCar.TabIndex = 2;
             this.btnAddNewCar.Text = "Add New Car";
             this.btnAddNewCar.UseVisualStyleBackColor = true;
+            this.btnAddNewCar.Click += new System.EventHandler(this.btnAddNewCar_Click);
             // 
             // btnEditCar
             // 
-            this.btnEditCar.Location = new System.Drawing.Point(305, 120);
+            this.btnEditCar.Location = new System.Drawing.Point(600, 147);
             this.btnEditCar.Name = "btnEditCar";
             this.btnEditCar.Size = new System.Drawing.Size(75, 23);
             this.btnEditCar.TabIndex = 3;
             this.btnEditCar.Text = "Edit Car";
             this.btnEditCar.UseVisualStyleBackColor = true;
+            this.btnEditCar.Click += new System.EventHandler(this.btnEditCar_Click);
             // 
             // btnDeleteCar
             // 
-            this.btnDeleteCar.Location = new System.Drawing.Point(305, 166);
+            this.btnDeleteCar.Location = new System.Drawing.Point(600, 176);
             this.btnDeleteCar.Name = "btnDeleteCar";
             this.btnDeleteCar.Size = new System.Drawing.Size(75, 23);
             this.btnDeleteCar.TabIndex = 4;
             this.btnDeleteCar.Text = "Delete Car";
             this.btnDeleteCar.UseVisualStyleBackColor = true;
+            this.btnDeleteCar.Click += new System.EventHandler(this.btnDeleteCar_Click);
+            // 
+            // btnRefresh
+            // 
+            this.btnRefresh.Location = new System.Drawing.Point(600, 66);
+            this.btnRefresh.Name = "btnRefresh";
+            this.btnRefresh.Size = new System.Drawing.Size(75, 23);
+            this.btnRefresh.TabIndex = 5;
+            this.btnRefresh.Text = "Add New Car";
+            this.btnRefresh.UseVisualStyleBackColor = true;
+            this.btnRefresh.Click += new System.EventHandler(this.btnRefresh_Click);
             // 
             // frmManageVehicleListing
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(540, 261);
+            this.ClientSize = new System.Drawing.Size(738, 261);
+            this.Controls.Add(this.btnRefresh);
             this.Controls.Add(this.btnDeleteCar);
             this.Controls.Add(this.btnEditCar);
             this.Controls.Add(this.btnAddNewCar);
@@ -107,5 +122,6 @@
         private System.Windows.Forms.Button btnAddNewCar;
         private System.Windows.Forms.Button btnEditCar;
         private System.Windows.Forms.Button btnDeleteCar;
+        private System.Windows.Forms.Button btnRefresh;
     }
 }

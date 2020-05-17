@@ -23,9 +23,9 @@ namespace CarRentalApp.Data
         public int CarTypeId { get; set; }
         public string Name { get; set; }
         public string Model { get; set; }
-        public string VPN { get; set; }
         public string LicensePlateNumber { get; set; }
         public string Year { get; set; }
+        public string VIN { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<CarRentalRecord> CarRentalRecords { get; set; }
