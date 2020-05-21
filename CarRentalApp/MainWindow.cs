@@ -12,9 +12,19 @@ namespace CarRentalApp
 {
     public partial class frmMainWindow : Form
     {
+        private frmLogin _login;
+        public string _roleName;
+
         public frmMainWindow()
         {
             InitializeComponent();
+        }
+
+        public frmMainWindow(frmLogin login, string roleName)
+        {
+            InitializeComponent();
+            _login = login;
+            _roleName = roleName;
         }
 
         private void addRentalRecordToolStripMenuItem_Click(object sender, EventArgs e)
@@ -33,10 +43,15 @@ namespace CarRentalApp
 
         private void manageVehiclesToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            var manageVehicles = new frmAddEditVehicle();
-            manageVehicles.MdiParent = this;
-            manageVehicles.Show();
-
+            //open 1 form at a time
+            var openForms = Application.OpenForms.Cast<Form>();
+            var isOpen = openForms.Any(q => q.Name == "frmAddEditVehicle");
+            if (!isOpen)
+            {
+                var manageVehicles = new frmAddEditVehicle();
+                manageVehicles.MdiParent = this;
+                manageVehicles.Show();
+            }
         }
 
         private void viewArchivesToolStripMenuItem_Click(object sender, EventArgs e)
@@ -45,6 +60,34 @@ namespace CarRentalApp
             manageRentalRecords.MdiParent = this;
             manageRentalRecords.Show();
 
+        }
+
+        private void menuStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
+        {
+
+        }
+
+        private void frmMainWindow_Load(object sender, EventArgs e)
+        {
+            var login = new frmLogin();
+            login.Close();
+
+            if(_roleName != "admin")
+            {
+                manageUsersToolStripMenuItem.Visible = false;
+            }
+        }
+
+        private void manageUsersToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var openForms = Application.OpenForms.Cast<Form>();
+            var isOpen = openForms.Any(x => x.Name == "frmManageUsers");
+            if (!isOpen)
+            {
+                var manageUser = new frmManageUsers();
+                manageUser.MdiParent = this;
+                manageUser.Show();
+            }
         }
     }
 }

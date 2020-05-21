@@ -46,7 +46,7 @@ namespace CarRentalApp
         private void btnAddNewCar_Click(object sender, EventArgs e)
         {
             var mainWindow = new frmMainWindow();
-            var manageCars = new frmAddEditVehicle();
+            var manageCars = new frmAddEditVehicle(this);
             manageCars.MdiParent = this.MdiParent;
             manageCars.Show();
         }
@@ -58,7 +58,7 @@ namespace CarRentalApp
             //query database for record
             var car = db.CarTypes.FirstOrDefault(x => x.CarTypeId == id);
             // launch Edit Window
-            var manageVehicle = new frmAddEditVehicle();
+            var manageVehicle = new frmAddEditVehicle(this);
             manageVehicle.MdiParent = this.MdiParent;
             manageVehicle.Show();
 
@@ -81,6 +81,24 @@ namespace CarRentalApp
         private void btnRefresh_Click(object sender, EventArgs e)
         {
             dgvVehicleListing.Refresh();
+        }
+
+        public void PopulateGrid()
+        {
+            // select a custom model collection of cars from database
+            var cars = db.CarTypes.Select(q => new
+            {
+                Make = q.Name,
+                Model = q.Model,
+                VIN = q.VIN,
+                Year = q.Year,
+                LicensePlate = q.LicensePlateNumber,
+                q.CarTypeId
+            }).ToList();
+
+            dgvVehicleListing.DataSource = cars;
+            dgvVehicleListing.Columns[4].HeaderText = "Number Plate";
+            dgvVehicleListing.Columns["Id"].Visible = false;
         }
     }
 }

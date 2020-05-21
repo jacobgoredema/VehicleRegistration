@@ -15,18 +15,22 @@ namespace CarRentalApp
     {
         private readonly CarRentalEntity db;
         private bool isEditMode;
-        public frmAddEditVehicle()
+        private frmManageVehicleListing _manageVehicleListing;
+
+        public frmAddEditVehicle(frmManageVehicleListing manageVehicleListing=null)
         {
             InitializeComponent();
             db = new CarRentalEntity();
             isEditMode = false;
+            _manageVehicleListing = manageVehicleListing;
         }
 
-        public frmAddEditVehicle(CarType carToEdit)
+        public frmAddEditVehicle(CarType carToEdit, frmManageVehicleListing manageVehicleListing=null)
         {
             InitializeComponent();
             isEditMode = true;
             PopulateFields(carToEdit);
+            _manageVehicleListing = manageVehicleListing;
         }
 
         private void PopulateFields(CarType car)
