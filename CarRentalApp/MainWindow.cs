@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CarRentalApp.Data;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -14,17 +15,19 @@ namespace CarRentalApp
     {
         private frmLogin _login;
         public string _roleName;
+        public User _user;
 
         public frmMainWindow()
         {
             InitializeComponent();
         }
 
-        public frmMainWindow(frmLogin login, string roleName)
+        public frmMainWindow(frmLogin login, User user)
         {
             InitializeComponent();
             _login = login;
-            _roleName = roleName;
+            _user = user;
+            _roleName = user.UserRoles.FirstOrDefault().Role.Name;
         }
 
         private void addRentalRecordToolStripMenuItem_Click(object sender, EventArgs e)
@@ -72,6 +75,9 @@ namespace CarRentalApp
             var login = new frmLogin();
             login.Close();
 
+            var userName = _user.Username;
+            toolStripStatusLabel1.Text = $"Logged in As: {userName}";
+
             if(_roleName != "admin")
             {
                 manageUsersToolStripMenuItem.Visible = false;
@@ -88,6 +94,11 @@ namespace CarRentalApp
                 manageUser.MdiParent = this;
                 manageUser.Show();
             }
+        }
+
+        private void exitToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Close();
         }
     }
 }

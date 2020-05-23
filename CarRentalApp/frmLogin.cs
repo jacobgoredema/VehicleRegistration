@@ -1,4 +1,5 @@
 ﻿using CarRentalApp.Data;
+using CarRentalApp.Framework.Helpers;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -36,16 +37,9 @@ namespace CarRentalApp
                 var username = txtUsername.Text.Trim();
                 var password = txtUsername.Text;
 
-                byte[] data = sha.ComputeHash(Encoding.UTF8.GetBytes(password));
-                StringBuilder stringBuilder = new StringBuilder();
+                var hashed_password = Utils.HashPassword(password);
 
-                for (int i = 0; i < data.Length; i++)
-                {
-                    stringBuilder.Append(data[i].ToString("x2"));
-                }
-
-                var hashed_password = stringBuilder.ToString();
-                var user = db.Users.FirstOrDefault(x => x.Username == username && x.Password == password);
+                var user = db.Users.FirstOrDefault(x => x.Username == username && x.Password == password && x.IsActive == true);
 
                 if (user==null)
                 {
@@ -55,7 +49,7 @@ namespace CarRentalApp
                 {
                     var role = user.UserRoles.FirstOrDefault();
                     var roleName=role.Role.Name;
-                    var mainWindow = new frmMainWindow(this, roleName);
+                    var mainWindow = new frmMainWindow(this, user);
                     mainWindow.Show();
                     Hide();
                 }

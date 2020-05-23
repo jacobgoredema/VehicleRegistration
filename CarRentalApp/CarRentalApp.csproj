@@ -84,6 +84,7 @@
     <Compile Include="Data\UserRole.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
+    <Compile Include="Framework\Helpers\Utils.cs" />
     <Compile Include="frmAddEditVehicle.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -110,6 +111,12 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Model.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="frmAddUser.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmAddUser.Designer.cs">
+      <DependentUpon>frmAddUser.cs</DependentUpon>
     </Compile>
     <Compile Include="frmManageRentalRecord.cs">
       <SubType>Form</SubType>
@@ -151,6 +158,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="frmAddEditVehicle.resx">
       <DependentUpon>frmAddEditVehicle.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmAddUser.resx">
+      <DependentUpon>frmAddUser.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmManageRentalRecord.resx">
       <DependentUpon>frmManageRentalRecord.cs</DependentUpon>

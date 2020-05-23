@@ -34,17 +34,19 @@
             this.btnAddNewUser = new System.Windows.Forms.Button();
             this.dgvUserRecord = new System.Windows.Forms.DataGridView();
             this.label1 = new System.Windows.Forms.Label();
+            this.btnResetPassword = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvUserRecord)).BeginInit();
             this.SuspendLayout();
             // 
             // btnRefresh
             // 
-            this.btnRefresh.Location = new System.Drawing.Point(151, 409);
+            this.btnRefresh.Location = new System.Drawing.Point(39, 409);
             this.btnRefresh.Name = "btnRefresh";
             this.btnRefresh.Size = new System.Drawing.Size(104, 23);
             this.btnRefresh.TabIndex = 13;
             this.btnRefresh.Text = "Refresh";
             this.btnRefresh.UseVisualStyleBackColor = true;
+            this.btnRefresh.Click += new System.EventHandler(this.btnRefresh_Click);
             // 
             // btnDeleteRecord
             // 
@@ -54,6 +56,7 @@
             this.btnDeleteRecord.TabIndex = 12;
             this.btnDeleteRecord.Text = "Delete Record";
             this.btnDeleteRecord.UseVisualStyleBackColor = true;
+            this.btnDeleteRecord.Click += new System.EventHandler(this.btnDeleteRecord_Click);
             // 
             // btnEditRecord
             // 
@@ -63,6 +66,7 @@
             this.btnEditRecord.TabIndex = 11;
             this.btnEditRecord.Text = "Edit Record";
             this.btnEditRecord.UseVisualStyleBackColor = true;
+            this.btnEditRecord.Click += new System.EventHandler(this.btnEditRecord_Click);
             // 
             // btnAddNewUser
             // 
@@ -72,6 +76,7 @@
             this.btnAddNewUser.TabIndex = 10;
             this.btnAddNewUser.Text = "Add New User";
             this.btnAddNewUser.UseVisualStyleBackColor = true;
+            this.btnAddNewUser.Click += new System.EventHandler(this.btnAddNewUser_Click);
             // 
             // dgvUserRecord
             // 
@@ -91,11 +96,22 @@
             this.label1.TabIndex = 8;
             this.label1.Text = "Manage Users Records";
             // 
+            // btnResetPassword
+            // 
+            this.btnResetPassword.Location = new System.Drawing.Point(151, 409);
+            this.btnResetPassword.Name = "btnResetPassword";
+            this.btnResetPassword.Size = new System.Drawing.Size(104, 23);
+            this.btnResetPassword.TabIndex = 14;
+            this.btnResetPassword.Text = "Reset Password";
+            this.btnResetPassword.UseVisualStyleBackColor = true;
+            this.btnResetPassword.Click += new System.EventHandler(this.btnResetPassword_Click);
+            // 
             // frmManageUsers
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(584, 448);
+            this.Controls.Add(this.btnResetPassword);
             this.Controls.Add(this.btnRefresh);
             this.Controls.Add(this.btnDeleteRecord);
             this.Controls.Add(this.btnEditRecord);
@@ -105,6 +121,7 @@
             this.Name = "frmManageUsers";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Manage Users";
+            this.Load += new System.EventHandler(this.frmManageUsers_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvUserRecord)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -119,5 +136,6 @@
         private System.Windows.Forms.Button btnAddNewUser;
         private System.Windows.Forms.DataGridView dgvUserRecord;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button btnResetPassword;
     }
 }
